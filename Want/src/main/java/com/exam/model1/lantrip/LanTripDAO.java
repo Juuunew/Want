@@ -107,7 +107,7 @@ public class LanTripDAO {
 
 	// modify
 	public LanTripTO boardModify(LanTripTO to) {
-		LanTripTO board = sqlSession.selectOne("modify", to);
+		LanTripTO board = sqlSession.selectOne("lanTrip_modify", to);
 
 		return board;
 	}

@@ -77,7 +77,7 @@
 	</section>
 	<section id="content" class="container">
 		<div class="form-group" style="border: 1px; color: solid; margin-top:20px;">
-			<textarea id="board_content" name="board_content" class="form-control" rows="10" style="resize: none" disabled="disabled"><c:out value="${requestScope.to.content}" escapeXml="false" /></textarea>
+			<div id="board_content" name="board_content" class="form-control" rows="10" style="resize: none" disabled="disabled"><c:out value="${requestScope.to.content}" escapeXml="false" /></div>
 		</div>
 	</section>
 	<section id="comment" class="container" style="margin-top:10px;">
@@ -103,16 +103,16 @@
 	            </div>
 	        </div>
 	    </form>
-	    <%-- <div class="btn_area">
+	    <<div class="btn_area">
 			<div class="align_left">
-				<input type="button" value="목록" class="btn_list btn_txt02" style="cursor: pointer;" onclick="location.href='list.do'" />
+				<input type="button" value="목록" class="btn_list btn_txt02" style="cursor: pointer;" onclick="location.href='lanTrip_list.do'" />
 			</div>
 			<div class="align_right">
-				<input type="button" value="수정" class="btn_list btn_txt02" style="cursor: pointer;" onclick="location.href='modify.do?seq=<%=request.getParameter("seq") %>'" />
-				<input type="button" value="삭제" class="btn_list btn_txt02" style="cursor: pointer;" onclick="location.href='delete.do?seq=<%=request.getParameter("seq") %>'" />
-				<input type="button" value="쓰기" class="btn_write btn_txt01" style="cursor: pointer;" onclick="location.href='write.do'" />
+				<input type="button" value="수정" class="btn_list btn_txt02" style="cursor: pointer;" onclick="location.href='lanTrip_modify.do?no=<%=request.getParameter("no") %>'" />
+				<input type="button" value="삭제" class="btn_list btn_txt02" style="cursor: pointer;" onclick="location.href='lanTrip_delete.do?no=<%=request.getParameter("no") %>'" />
+				<input type="button" value="쓰기" class="btn_write btn_txt01" style="cursor: pointer;" onclick="location.href='lanTrip_write.do'" />
 			</div>
-		</div> --%>
+		</div>
 	</section>
 	
 </body>

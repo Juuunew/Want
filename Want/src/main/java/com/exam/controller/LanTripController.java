@@ -97,4 +97,19 @@ public class LanTripController {
       return "lanTrip/lanTrip_view";
    }
 
+   // 랜선여행 modify
+   @RequestMapping(value = "/lanTrip_modify.do")
+   public String lanTrip_modify(HttpServletRequest request, Model model) {	   
+	  
+	   
+	   return "lanTrip/lanTrip_view";
+   }
+   
+   // 랜선여행 modify_ok
+   @RequestMapping(value = "/lanTrip_modify_ok.do")
+   public String lanTrip_modify_ok(HttpServletRequest request, Model model) {	   
+	   
+	   return "lanTrip/lanTrip_modify_ok";
+   }
+   
 }

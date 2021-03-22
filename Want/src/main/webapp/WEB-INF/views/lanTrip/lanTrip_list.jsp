@@ -39,7 +39,8 @@ for (LanTripTO to : boardLists) {
 	sbHtml.append("<div class='col-3'> ");
 	sbHtml.append("	<div class='card'>");
 	sbHtml.append(
-	"		<video src='https://codingyaar.com/wp-content/uploads/video-in-bootstrap-card.mp4' controls></video>");
+//	"		<video src='https://codingyaar.com/wp-content/uploads/video-in-bootstrap-card.mp4' controls></video>");
+	"		<video src='" + video + "' controls></video>");
 	sbHtml.append("		<div class='card-body'>");
 	sbHtml.append("		<h3 class='card-title'>" + writer + "</h3>");
 	sbHtml.append("			<p class='card-text'>" + subject + "</p>");
@@ -126,6 +127,14 @@ for (LanTripTO to : boardLists) {
 			 <%= sbHtml %>
 		</div>
 	</section>
-	<button class="btn btn-primary btn-md" onclick="location.href='./lanTrip_write.do'" >등록하기</button>
+	<c:choose>      
+      <c:when test="${empty sessionScope.id && empty sessionScope.kakaoid}">
+         <button type="button" class="btn btn-primary" onclick="javascript:alert('로그인을 하셔야합니다.')">글쓰기</button>
+      </c:when>
+      <c:otherwise>
+         <button type="button" class="btn btn-primary" onclick="location.href='./lanTrip_write.do?cpage=<%=cpage %>'">글쓰기</button>
+      </c:otherwise>
+      </c:choose>   
+	<!-- <button class="btn btn-primary btn-md" onclick="location.href='./lanTrip_write.do'" >등록하기</button> -->
 </body>
 </html>
