@@ -321,24 +321,32 @@ public class LanTripController {
    
    // 랜선여행 게시물 view
    @RequestMapping(value = "/lanTrip_view.do")
-   public String lanTrip_view(HttpServletRequest request) {
+   public String lanTrip_view(HttpServletRequest request, HttpSession session) {
 	   
-	   String no = request.getParameter("no");
-	   LanTripTO to = new LanTripTO();
-	   to.setNo(no);
-	   
-	   to = dao.boardView(to);
-	   
-	   LanTripReplyTO replyTo = new LanTripReplyTO();
-	   replyTo.setBno(no);
-	   ArrayList<LanTripReplyTO> rLists = lantripReplyDao.lantripReplyList(replyTo);
-	   
-	   
-	   request.setAttribute("to", to);
-	   request.setAttribute("no", no);
-	   request.setAttribute("rLists", rLists);
-	   
-      return "lanTrip/lanTrip_view";
+		String no = request.getParameter("no");
+		String nick = (String) session.getAttribute("nick");
+
+		LanTripTO to = new LanTripTO();
+		to.setNo(no);
+
+		// 글 내용 가져오기
+		if (nick == null) { // 로그인아닐 때
+			to = dao.lanTripView(to);
+		} else { // 로그인일 때
+			to.setNick(nick);
+			to = dao.lanTripViewLogin(to);
+		}
+
+		// 해당 글에 대한 댓글 list가져오기
+		LanTripReplyTO replyTo = new LanTripReplyTO();
+		replyTo.setBno(no);
+		ArrayList<LanTripReplyTO> rLists = lantripReplyDao.lantripReplyList(replyTo);
+
+		request.setAttribute("to", to);
+		request.setAttribute("no", no);
+		request.setAttribute("rLists", rLists);
+
+		return "lanTrip/lanTrip_view";
    }
    
 	// 랜선여행 view reply ok
@@ -566,7 +574,6 @@ public class LanTripController {
       
 
       LanTripTO lto = heartDao.lanTripSaveHeart(to);
-      
    
       return lto;
    }

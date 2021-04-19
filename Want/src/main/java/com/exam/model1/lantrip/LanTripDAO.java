@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.exam.model1.accom.AccomTO;
 import com.exam.model1.lantrip.LanTripListTO;
 import com.exam.model1.lantrip.LanTripTO;
 import com.exam.model1.picture.PictureTO;
@@ -131,14 +132,26 @@ public class LanTripDAO {
 		return result;
 	}
 	
-	// view
-	public LanTripTO boardView(LanTripTO to) {
+	//로그인 아닐 때 lantrip view
+	public LanTripTO lanTripView( LanTripTO to ) {
+		
 		sqlSession.update("view_hit", to);
 		sqlSession.update("lanViewReply", to);
-		to = sqlSession.selectOne("lanTrip_view", to);
-
+		to = sqlSession.selectOne( "lanTrip_view", to );
+		
 		return to;
 	}
+	
+	//로그인일 때 lantrip view
+	public LanTripTO lanTripViewLogin( LanTripTO to ) {
+		
+		sqlSession.update("view_hit", to);
+		sqlSession.update("lanViewReply", to);
+		to = sqlSession.selectOne( "lanTrip_view_login", to );
+		
+		return to;
+	}
+	
 
 	// delete
 	public LanTripTO boardDelete(LanTripTO to) {
