@@ -36,8 +36,8 @@ public class WithController {
 	private WithReplyDAO wReplyDao;
 
 	//private String uploadPath = "C:\\Git_Local\\Want\\src\\main\\webapp\\upload\\with";
-	private String uploadPath = "C:\\KICKIC\\git repo\\Want\\Want\\src\\main\\webapp\\upload\\with";
-	//private String uploadPath ="/Users/hyukjun/git/Want/Want/src/main/webapp/upload/with";
+	//private String uploadPath = "C:\\KICKIC\\git repo\\Want\\Want\\src\\main\\webapp\\upload\\with";
+	private String uploadPath ="/Users/hyukjun/git/Want/Want/src/main/webapp/upload/with";
 	
 	//리눅스 경로
 	//private String uploadPath = "/home/want/apache-tomcat-9.0.44/webapps/Want/upload/with";

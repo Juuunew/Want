@@ -44,8 +44,8 @@ public class AccomController {
 
 	
 	//private String uploadPath = "C:\\Git_Local\\Want\\src\\main\\webapp\\upload\\accom";
-	private String uploadPath = "C:\\KICKIC\\git repo\\Want\\Want\\src\\main\\webapp\\upload\\accom";
-//	private String uploadPath = "/Users/hyukjun/git/Want/Want/src/main/webapp/upload/accom";
+	//private String uploadPath = "C:\\KICKIC\\git repo\\Want\\Want\\src\\main\\webapp\\upload\\accom";
+	private String uploadPath = "/Users/hyukjun/git/Want/Want/src/main/webapp/upload/accom";
 	
 
 	
